@@ -1,0 +1,11 @@
+RewriteEngine On
+
+RewriteRule ^dashboard/$ painel.php
+RewriteRule ^cadastro/$ cadastro-usuario.php
+RewriteRule ^logout/$ logout.php
+RewriteRule ^entrar/$ autenticacao.php
+RewriteRule ^grupos/novo/$ criar-grupo.php
+RewriteRule ^grupos/editar/([0-9])/$ editar-grupo.php?id=$1
+RewriteRule ^grupos/alterar/([0-9])/$ alterar-grupo.php?id=$1
+RewriteRule ^grupos/excluir/([0-9])/$ excluir-grupos.php?id=$1
+RewriteRule ^grupos/adicionar/$ adicionar-grupo.php
