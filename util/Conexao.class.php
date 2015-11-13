@@ -5,7 +5,7 @@
         private $charset;
 
         function __construct(){
-            $this->conexao = mysqli_connect("localhost", "root", "7572504710") or die(mysqli_error($this->conexao));
+            $this->conexao = mysqli_connect("localhost", "root", "edinho007") or die(mysqli_error($this->conexao));
             $this->banco   = mysqli_select_db($this->conexao, "nossacompra") or die(mysqli_error($this->conexao));
             $this->charset = mysqli_set_charset($this->conexao, "utf8") or die(mysqli_error($this->conexao));
         }

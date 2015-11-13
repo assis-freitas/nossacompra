@@ -9,3 +9,9 @@ RewriteRule ^grupos/editar/([0-9])/$ editar-grupo.php?id=$1
 RewriteRule ^grupos/alterar/([0-9])/$ alterar-grupo.php?id=$1
 RewriteRule ^grupos/excluir/([0-9])/$ excluir-grupos.php?id=$1
 RewriteRule ^grupos/adicionar/$ adicionar-grupo.php
+RewriteRule ^usuario/configuracoes/$ editar-usuario.php
+RewriteRule ^usuario/desativar/$ desativar-usuario.php
+RewriteRule ^membro/editar/([0-9])/$ editar-membro.php?cod_grupo=$1
+RewriteRule ^membro/editado/([0-9])/$ membro-alterado.php?mem_identificador=$1
+RewriteRule ^membro/excluir/$ excluir-membro.php
+RewriteRule ^grupos/lista/$ listas.php
