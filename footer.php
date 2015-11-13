@@ -2,7 +2,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <p>
-                        &copy; <?php echo date("Y"); ?> &middot;  os direitos reservados &middot; <span style="font-family: Pacifico">Nossa Compra</span>
+                        &copy; <?php echo date("Y"); ?> &middot;  Todos os direitos reservados &middot; <span style="font-family: Pacifico">Nossa Compra</span>
                     </p>
                 </div>
             </div>
