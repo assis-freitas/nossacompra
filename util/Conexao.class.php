@@ -58,7 +58,6 @@
             }
             
             $query .= " WHERE ".$where;
-            
             mysqli_query($this->conexao, $query);
         }
         
