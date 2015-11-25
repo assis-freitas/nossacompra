@@ -230,3 +230,7 @@ h1 {
     background-color: #3B81C8;
 }
 
+.table{
+    width: 50%;
+    margin: 0 auto;
+}
