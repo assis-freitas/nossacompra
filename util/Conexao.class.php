@@ -58,7 +58,6 @@
             }
             
             $query .= " WHERE ".$where;
-            
             mysqli_query($this->conexao, $query);
         }
         
@@ -92,6 +91,7 @@
             while($a = mysqli_fetch_assoc($q)){
                 array_push($data, $a);
             }
+            
             return $data;
         }
         

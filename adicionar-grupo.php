@@ -23,7 +23,7 @@ if (!isLogged()) {
     <div class="container" id="conteudo">
         <div class="alert alert-danger">O nome não foi informado ! Por favor informe-o.</div>
     </div>
-    <a href="/criar-grupo.php">Voltar</a>
+    <a title="Voltar para pagina anterior" href="/criar-grupo.php">Voltar</a>
     <?php
     include("./scripts.php");
     include("./footer.php");

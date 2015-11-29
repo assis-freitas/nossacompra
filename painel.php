@@ -1,6 +1,6 @@
 <?php include("header.php"); ?>
 <div class="container-fluid" id="conteudo">
-        <a href="grupos/novo/" class="btn btn-default"><i class="fa fa-plus"></i> Novo Grupo</a>
+    <a title="Criar novo Grupo" href="grupos/novo/" class="btn btn-default"><i class="fa fa-plus"></i> Novo Grupo</a>
         <div id="grupos"></div>
 
 </div>

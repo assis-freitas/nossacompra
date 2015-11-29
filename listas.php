@@ -1,50 +1,67 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8" />
-		<title>Nossa Compra</title>
-		<link rel="stylesheet" type="text/css" href="css/estilo.css" />
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
-		<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-	</head>
-	<body>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<h1 id="logo">Nossa Compra</h1>
-					<div class="row">
-						<div class="col-md-3">
-							<a href="#" class="btn btn-novo"><i class="fa fa-plus-circle"></i> Nova Lista</a>
-						</div>
-						<div class="col-md-offset-5 col-md-4">
-							<div class="input-group">
-								<input type="text" class="form-control" />
-								<div class="input-group-btn">
-									<button class="btn btn-primary"><i class="fa fa-search"></i></button>
-								</div>
-							</div>
-						</div>
-					</div>
-					<br>
-					<div class="row">
-						<?php for($i = 0; $i < 4;$i++): ?>
-						<div class="col-md-3">
-							<div class="box">
-								<h3 class="pull-left">Lista <?php echo $i + 1; ?></h3>
-								<p class="badge pull-right">5 Itens</p>
-								<div class="clearfix"></div>
-								<div class="footer">
-									<a href="#" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Editar</a>
-									<a href="#" class="btn btn-excluir"><i class="fa fa-minus-circle"></i> Excluir</a>
-									<a href="#" class="btn btn-default"><i class="fa fa-list-ul"></i> Itens</a>
-								</div>
-							</div>
-						</div>
-						<?php endfor; ?>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
-</html>
+<?php
+session_start();
+require_once 'util/Conexao.class.php';
+require_once 'util/funcoes.php';
+
+$codGrupo = $_GET['codGrupo'];
+include("header.php");
+if (!isMember($codGrupo)):
+?>
+<div class="container" id="conteudo">
+    <div class="alert alert-danger">
+        <p>
+            Você não permissão para acessar essa página
+        </p>
+    </div>
+</div>
+<?php
+else:
+    $conexao = new Conexao();
+    $colunas = array("*");
+    $dados = $conexao->select("lista", $colunas, "where LIS_GRU_CODIGO = ".$codGrupo);
+    
+    ?>
+<div class="container" id="conteudo">
+    <div class="row">
+        <div class="col-md-1">
+            <a class="btn-default btn" href="/grupos/<?php echo $codGrupo; ?>/listas/adicionar/">
+                <span class="glyphicon glyphicon-plus-sign"></span> 
+                Nova Lista</a>
+        </div>
+    </div>
+
+    <?php if (count($dados) == 0): ?>
+        <div class="container" id="conteudo">
+            <p id="erroGrupo">Este grupo não contém listas</p>
+        </div>
+    <?php else : ?>
+
+        <div class="row">
+            <br>
+            <?php foreach ($dados as $lista): ?>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3>Lista <?php echo $lista["LIS_NOME"]; ?></h3>
+                        </div>
+                        <div class="panel-body">
+                            <p class="badge">5 Itens</p>
+                            <div class="clearfix"></div>
+                            <div class="footer">
+                                <a href="/grupos/<?php echo $codGrupo; ?>/listas/<?php echo $lista["LIS_CODIGO"]; ?>/editar/" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Editar Lista"><i class="fa fa-pencil-square-o"></i></a>
+                                <a href="/grupos/<?php echo $codGrupo; ?>/listas/<?php echo $lista["LIS_CODIGO"]; ?>/excluir/" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Excluir Lista"><i class="fa fa-minus-circle"></i></a>
+                                <a href="/grupos/<?php echo $codGrupo; ?>/listas/<?php echo $lista["LIS_CODIGO"]; ?>/itens/" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Itens da Lista"><i class="fa fa-list-ul"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+ </div>
+    <?php 
+    endif; 
+    
+    include("scripts.php");
+    include("footer.php");
+    endif;
+ ?>

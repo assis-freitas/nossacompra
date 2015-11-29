@@ -41,16 +41,16 @@
                     <?php if (!isset($_SESSION['usuario'])): ?>
                     <form class="navbar-form navbar-right" action="/entrar/" role="search" method="post">
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="E-mail" name="user" autocomplete="off">
-                            <input type="password" class="form-control" placeholder="Senha" name="pass">
+                            <input title="Insira seu E-mail" type="text" class="form-control" placeholder="E-mail" name="user" autocomplete="off">
+                            <input title="Insira sua Senha" type="password" class="form-control" placeholder="Senha" name="pass">
                         </div>
-                        <button type="submit" class="btn btn-default">Entrar</button>
+                        <button title="Entrar em sua conta" type="submit" class="btn btn-default">Entrar</button>
                       </form>
                     <?php endif; ?>
                     <ul class="nav navbar-nav navbar-right">
                         <?php if (isset($_SESSION['usuario'])): ?>
                             <li>
-                                <a href="/dashboard/">Meus Grupos</a>
+                                <a title="Ver todos seus grupos" href="/dashboard/">Meus Grupos</a>
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['usuario']["USU_EMAIL"]; ?> <i class="fa fa-caret-down"></i></a>
@@ -64,8 +64,8 @@
                                 </ul>
                             </li>
                         <?php else: ?>
-                            <li><a href="/">Inicio</a></li>
-                            <li><a href="/cadastro/">Cadastrar</a></li>
+                            <li><a title="Voltar a pagina inicial" href="/">Inicio</a></li>
+                            <li><a title="Cadastrar um novo usuario" href="/cadastro/">Cadastrar</a></li>
                         <?php endif; ?>
                     </ul>
                 </div><!-- /.navbar-collapse -->

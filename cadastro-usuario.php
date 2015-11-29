@@ -31,23 +31,23 @@
         <div class="col-md-6">
             <h1>Cadastro de usuário</h1>
             <form method="post" action="" id="formCadastro">
-                <div class="form-group">
-                    <label>Nome</label>
-                    <input type="text" class="form-control" name="nome">
+                <div class="form-group" >
+                    <label >Nome</label>
+                    <input title="Nome do usuario" type="text" class="form-control" name="nome" >
                 </div>
-                <div class="form-group">
+                <div class="form-group" title="E-mail do usuario não cadastrado">
                     <label>E-mail</label>
                     <input type="text" class="form-control" name="email">
                 </div>
-                <div class="form-group">
+                <div class="form-group" >
                     <label>Senha</label>
-                    <input type="password" class="form-control" name="senha">
+                    <input title="Senha que será ultilizada para entrar em sua conta" type="password" class="form-control" name="senha">
                 </div>
                 <div class="form-group">
                     <label>Confirmar Senha</label>
-                    <input type="password" class="form-control" name="confirmarSenha">
+                    <input title="Repita a senha anterior" type="password" class="form-control" name="confirmarSenha">
                 </div>
-                <input type="button" class="btn btn-default" value="Adicionar" id="btnAdd">
+                <input type="button" class="btn btn-default" value="Adicionar" id="btnAdd" title="criar conta">
             </form>
             <div class="alert alert-warning hide" id="erro"></div>
         </div>

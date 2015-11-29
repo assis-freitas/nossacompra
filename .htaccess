@@ -1,11 +1,40 @@
-#RewriteEngine On
-#
-#RewriteRule ^dashboard/$ painel.php
-#RewriteRule ^cadastro/$ cadastro-usuario.php
-#RewriteRule ^logout/$ logout.php
-#RewriteRule ^entrar/$ autenticacao.php
-#RewriteRule ^grupos/novo/$ criar-grupo.php
-#RewriteRule ^grupos/editar/([0-9])/$ editar-grupo.php?id=$1
-#RewriteRule ^grupos/alterar/([0-9])/$ alterar-grupo.php?id=$1
-#RewriteRule ^grupos/excluir/([0-9])/$ excluir-grupos.php?id=$1
-#RewriteRule ^grupos/adicionar/$ adicionar-grupo.php
+RewriteEngine On
+
+RewriteRule ^dashboard/$ painel.php
+RewriteRule ^cadastro/$ cadastro-usuario.php
+RewriteRule ^logout/$ logout.php
+RewriteRule ^entrar/$ autenticacao.php
+
+# REGRAS DE GRUPOS
+
+RewriteRule ^grupos/novo/$ criar-grupo.php
+RewriteRule ^grupos/editar/([0-9])/$ editar-grupo.php?id=$1
+RewriteRule ^grupos/alterar/([0-9])/$ alterar-grupo.php?id=$1
+RewriteRule ^grupos/excluir/([0-9])/$ excluir-grupos.php?id=$1
+RewriteRule ^grupos/adicionar/$ adicionar-grupo.php
+
+#REGRAS DE LISTAS
+
+RewriteRule ^grupos/([0-9])/listas/$ listas.php?codGrupo=$1
+RewriteRule ^grupos/([0-9])/listas/adicionar/$ adicionar-lista.php?codGrupo=$1
+RewriteRule ^grupos/([0-9])/listas/([0-9])/editar/$ editar-lista.php?codGrupo=$1&id=$2
+RewriteRule ^grupos/([0-9])/listas/([0-9])/excluir/$ excluir-lista.php?codGrupo=$1&id=$2
+
+#REGRAS DE ITENS
+
+RewriteRule ^grupos/([0-9])/listas/([0-9])/itens/$ itens.php?codGrupo=$1&codLista=$2
+RewriteRule ^grupos/([0-9])/listas/([0-9])/itens/adicionar/$ adicionar-item.php?codGrupo=$1&codLista=$2
+RewriteRule ^grupos/([0-9])/listas/([0-9])/itens/([0-9])/editar/$ editar-item.php?codGrupo=$1&lista=$2&id=$3
+RewriteRule ^grupos/([0-9])/listas/([0-9])/itens/([0-9])/editado/$ item-alterado.php?codGrupo=$1&lista=$2&id=$3
+RewriteRule ^grupos/([0-9])/listas/([0-9])/itens/([0-9])/excluir/$ excluir-item.php?codGrupo=$1&codLista=$2&id=$3
+
+#REGRAS DE MEMBROS
+RewriteRule ^grupos/([0-9])/membro/editar/$ editar-membro.php?codGrupo=$1
+RewriteRule ^membro/editado/([0-9])/$ membro-alterado.php?mem_identificador=$1
+RewriteRule ^membro/excluir/$ excluir-membro.php
+
+#outros
+
+RewriteRule ^usuario/configuracoes/$ editar-usuario.php
+RewriteRule ^usuario/desativar/$ desativar-usuario.php
+RewriteRule ^grupos/lista/$ listas.php
